@@ -25,7 +25,7 @@ namespace TaskManager
 
         private void RefreshTaskList()
         {
-            using (SQLiteConnection con = new SQLiteConnection("Data Source=C:\\Users\\milan\\source\\repos\\TaskManager\\tasks.db; Version=3;"))
+            using (SQLiteConnection con = new SQLiteConnection(@"Data Source=..\..\tasks.db; Version=3;"))
             {
                 con.Open();
                 string query = "SELECT * from Tasks";
@@ -95,7 +95,7 @@ namespace TaskManager
 
         private void AddNewRecordToDatabase(Task task)
         {
-            using (SQLiteConnection con = new SQLiteConnection("Data Source=C:\\Users\\milan\\source\\repos\\TaskManager\\tasks.db; Version=3;"))
+            using (SQLiteConnection con = new SQLiteConnection(@"Data Source=..\..\tasks.db; Version=3;"))
             {
                 con.Open();
                 string query = "INSERT INTO Tasks (Name, Description, DueDate, Complete) VALUES (@Name, @Description, @DueDate, @Complete)";
@@ -112,7 +112,7 @@ namespace TaskManager
 
         private void UpdateRecordInDatabase(Task updatedtask)
         {
-            using (SQLiteConnection con = new SQLiteConnection("Data Source=C:\\Users\\milan\\source\\repos\\TaskManager\\tasks.db; Version=3;"))
+            using (SQLiteConnection con = new SQLiteConnection(@"Data Source=..\..\tasks.db; Version=3;"))
             {
                 con.Open();
                 string query = "UPDATE Tasks SET Name = @Name, Description = @Description, DueDate = @DueDate, Complete = @Complete WHERE ID = @ID";
@@ -130,7 +130,7 @@ namespace TaskManager
 
         private void DeleteRecordFromDatabase(int taskID)
         {
-            using (SQLiteConnection con = new SQLiteConnection("Data Source=C:\\Users\\milan\\source\\repos\\TaskManager\\tasks.db; Version=3;"))
+            using (SQLiteConnection con = new SQLiteConnection(@"Data Source=..\..\tasks.db; Version=3;"))
             {
                 con.Open();
                 string query = "DELETE FROM Tasks WHERE ID = @ID";
